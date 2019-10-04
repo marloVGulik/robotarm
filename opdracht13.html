@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <title>level 13</title>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <script src="./robot-arm.js"></script>
+        <script>
+            // Robotarm bibliotheek inladen
+            var canvas = document.getElementById("canvas");
+            var robotArm = new RobotArm(canvas);
+            
+            // Het level inladen
+            robotArm.randomLevel(1);
+            console.log("Level loaded");
+            
+            for(i = 0; i < 8; i++) {
+                robotArm.grab();
+                if(robotArm.scan() != null) {
+                    for(j = 0; j <= i; j++) {
+                        robotArm.moveRight();
+                    }
+                    robotArm.drop();
+                    for(j = 0; j <= i; j++) {
+                        robotArm.moveLeft();
+                    }
+                } else {
+                    break;
+                }
+            }
+            
+            // De door jou opgegeven instructies uitvoeren
+            robotArm.run();
+        </script>
+    </body>
+</html>

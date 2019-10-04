@@ -481,7 +481,7 @@ var RobotArm = function (canvas) {
 
     self.randomLevel = function (columns) {
 		columns = columns || 5;
-		rows = 6;
+		rows = 8;
 
 		var map = [];
 		for (var c = 0; c < columns; c++) {
