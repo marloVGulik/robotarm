@@ -1,0 +1,49 @@
+<html>
+    <body>
+        <title>level 1</title>
+        <canvas id="canvas" width="800" height="600"></canvas>
+        <script src="./robot-arm.js"></script>
+        <script>
+            // Robotarm bibliotheek inladen
+            var canvas = document.getElementById("canvas");
+            var robotArm = new RobotArm(canvas);
+            
+            // Het level inladen
+            robotArm.loadLevel("exercise 2");
+
+            function move(amount, left, grab) {
+                for(var i = 0; i < amount; i++) {
+                    if(left == true) {
+                        robotArm.moveLeft();
+                    } else if(left == false) {
+                        robotArm.moveRight();
+                    } else {
+                        alert("Error: wrong side input");
+                    }
+                }
+                if(grab == true) {
+                    console.log("Grabbing");
+                    robotArm.grab();
+                } else if(grab == false) {
+                    console.log("Dropping");
+                    robotArm.drop();
+                } else {
+                    alert("Error: wrong grab input")
+                }
+                console.log("Moved " + amount + " to (true = left, false = right)" + left);
+            }
+            
+            // instructies
+            move(0, true, true);
+            move(9, false, false);
+            move(5, true, true);
+            move(5, false, false);
+            move(2, true, true);
+            move(2, false, false);
+
+            
+            // De door jou opgegeven instructies uitvoeren
+            robotArm.run();
+        </script>
+    </body>
+</html>
