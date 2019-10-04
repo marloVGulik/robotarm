@@ -1,6 +1,6 @@
 <html>
     <body>
-        <title>level 2</title>
+        <title>level 3</title>
         <canvas id="canvas" width="800" height="600"></canvas>
         <script src="./robot-arm.js"></script>
         <script>
@@ -9,8 +9,9 @@
             var robotArm = new RobotArm(canvas);
             
             // Het level inladen
-            robotArm.loadLevel("exercise 2");
+            robotArm.loadLevel("exercise 3");
 
+            // Move functie
             function move(amount, left, grab) {
                 for(var i = 0; i < amount; i++) {
                     if(left == true) {
@@ -34,12 +35,10 @@
             }
             
             // instructies
-            move(0, true, true);
-            move(9, false, false);
-            move(5, true, true);
-            move(5, false, false);
-            move(2, true, true);
-            move(2, false, false);
+            for(i = 0; i < 4; i++) {
+                move(9, true, true);
+                move(9, false, false);
+            }
 
             
             // De door jou opgegeven instructies uitvoeren
