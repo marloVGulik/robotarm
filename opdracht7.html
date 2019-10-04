@@ -12,37 +12,18 @@
             robotArm.loadLevel("exercise 7");
 
             // Move functie
-            function move(amount, left, grab) {
-                for(var i = 0; i < amount; i++) {
-                    if(left == true) {
-                        robotArm.moveLeft();
-                    } else if(left == false) {
-                        robotArm.moveRight();
-                    } else {
-                        alert("Error: wrong side input");
-                    }
-                }
-                if(grab == true) {
-                    console.log("Grabbing");
-                    robotArm.grab();
-                } else if(grab == false) {
-                    console.log("Dropping");
-                    robotArm.drop();
-                } else {
-                    alert("Error: wrong grab input")
-                }
-                console.log("Moved " + amount + " to (true = left, false = right)" + left);
+            for(i = 0; i < 9; i++) {
+                robotArm.moveRight();
             }
-            
-            // instructies
-            move(8, false, true);
-
             for(i = 0; i < 5; i++) {
-                for (a = 0; a < 6; a++) {
-                    move(1, false, true);
-                    move(1, true, false);
+                for(j = 0; j < 6; j++) {
+                    robotArm.grab();
+                    robotArm.moveLeft();
+                    robotArm.drop();
+                    robotArm.moveRight();
                 }
-                move(2, true, false);
+                robotArm.moveLeft();
+                robotArm.moveLeft();
             }
 
             
