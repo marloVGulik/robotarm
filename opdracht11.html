@@ -11,18 +11,23 @@
             // Het level inladen
             robotArm.loadLevel("exercise 11");
 
-            for(i = 0; i < 10; i++) {
+            for(i = 0; i < 9; i++) {
+                robotArm.moveRight();
+            }
+
+            for(i = 0; i < 9; i++) {
                 robotArm.grab();
                 if(robotArm.scan() == "white") {
                     robotArm.moveRight();
                     robotArm.drop();
                     robotArm.moveLeft();
-                    i--;
+                    robotArm.moveLeft();
                 } else {
                     robotArm.drop();
-                    robotArm.moveRight();
+                    robotArm.moveLeft();
                 }
             }
+
             
 
             
